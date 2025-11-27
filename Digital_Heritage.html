@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Heritage - Re:Born AI</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#E9C46A', // Warm Sand
+                            light: '#F4D385',
+                            dark: '#D1A84F',
+                        },
+                        eco: {
+                            DEFAULT: '#7F9F80', // Sage Green
+                            light: '#A3C1A4',
+                            dark: '#5F7F60',
+                        },
+                        cream: {
+                            100: '#FFFCF7',
+                            200: '#F9F5EB',
+                        },
+                        gray: {
+                            900: '#1F2937', 800: '#4A4A4A', 700: '#6B6B6B', 600: '#8C8C8C',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                        eng: ['Montserrat', 'sans-serif'],
+                        hand: ['"Gowun Dodum"', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9F5EB; }
+        ::-webkit-scrollbar-thumb { background: #E9C46A; border-radius: 4px; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden bg-cream-100">
+
+    <!-- Navigation Bar (All Links Connected) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-cream-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="ReBorn_AI_Landing_Page.html" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="font-eng font-bold text-2xl text-gray-800 tracking-tighter">
+                        Re:Born <span class="text-brand">AI</span>
+                    </span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="AI_Design_Studio.html" class="text-gray-700 hover:text-brand font-medium transition-colors">AI 디자인</a>
+                    <a href="Style_Library.html" class="text-gray-700 hover:text-brand font-medium transition-colors">스타일 라이브러리</a>
+                    <a href="Master_Makers.html" class="text-gray-700 hover:text-brand font-medium transition-colors">마스터 작가</a>
+                    <a href="Digital_Heritage.html" class="text-brand font-bold transition-colors">디지털 헤리티지</a>
+                    <button class="bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded-full font-bold shadow-sm hover:shadow-md transition-all">
+                        앱 다운로드
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-32 pb-16 text-center px-4">
+        <h1 class="font-hand text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            옷에도 <span class="text-brand">족보(Heritage)</span>가 생깁니다.
+        </h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            세상에 하나뿐인 작품, 그 가치를 영원히 증명하세요.<br>
+            블록체인 기술로 위변조가 불가능한 디지털 보증서를 발급해 드립니다.
+        </p>
+    </header>
+
+    <!-- Main Content: Certificate Showcase -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left: Digital Certificate Mockup -->
+            <div class="relative flex justify-center lg:justify-end">
+                <!-- Background decoration -->
+                <div class="absolute inset-0 bg-brand/10 rounded-full blur-3xl transform scale-75 animate-pulse"></div>
+                
+                <!-- The Card -->
+                <div class="relative w-80 md:w-96 bg-white rounded-3xl shadow-card overflow-hidden border border-gray-100 animate-float z-10">
+                    <!-- Card Header -->
+                    <div class="bg-gray-900 text-white p-6 text-center relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand via-white to-brand"></div>
+                        <h3 class="font-eng font-bold text-xl tracking-widest">CERTIFICATE</h3>
+                        <p class="text-xs text-gray-400 mt-1">OF AUTHENTICITY</p>
+                        <div class="mt-4 w-24 h-24 bg-white p-2 mx-auto rounded-lg">
+                            <!-- Dummy QR Code -->
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ReBornAI_Verified_Item_12345" alt="QR Code" class="w-full h-full">
+                        </div>
+                    </div>
+                    
+                    <!-- Card Body -->
+                    <div class="p-8 space-y-6">
+                        <div class="text-center border-b border-gray-100 pb-6">
+                            <h2 class="font-bold text-2xl text-gray-800">Vintage Flower Denim</h2>
+                            <p class="text-sm text-gray-500 font-mono mt-1">ID: #RB-2401-A</p>
+                        </div>
+                        
+                        <div class="space-y-4 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Master Maker</span>
+                                <span class="font-bold text-gray-800">Kim Seo-yeon</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Date of Birth</span>
+                                <span class="font-bold text-gray-800">2024. 03. 15</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Material</span>
+                                <span class="font-bold text-gray-800">Upcycled Denim</span>
+                            </div>
+                        </div>
+
+                        <!-- Story Section -->
+                        <div class="bg-cream-200 p-4 rounded-xl">
+                            <p class="text-xs text-gray-600 leading-relaxed italic">
+                                "어머니가 20대 때 입으셨던 청자켓을 물려받아, 
+                                딸이 좋아하는 데이지 꽃 자수를 더해 재탄생시킨 작품입니다."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="bg-gray-50 p-4 text-center">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider">Verified by Re:Born AI Blockchain</p>
+                    </div>
+                </div>
+
+                <!-- Floating Badge -->
+                <div class="absolute -right-4 top-20 bg-white p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-bounce z-20">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span class="text-xs font-bold text-gray-800">정품 인증 완료</span>
+                </div>
+            </div>
+
+            <!-- Right: Feature Description -->
+            <div class="space-y-12">
+                
+                <!-- Feature 1 -->
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 text-brand-dark">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">위조 불가능한 진품 증명</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            모든 커스텀 제품에는 고유한 QR 태그가 부착됩니다.<br>
+                            스마트폰을 갖다 대는 순간, Re:Born AI가 보증하는 정품임을 확인할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 text-brand-dark">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">스토리와 역사의 기록</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            누가, 언제, 어떤 마음으로 만들었는지.<br>
+                            제품 탄생의 모든 히스토리가 디지털 족보에 영원히 기록됩니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 text-brand-dark">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">리셀 가치 상승</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            중고 거래 시 디지털 인증서를 함께 양도하세요.<br>
+                            스토리가 증명된 '작품'은 일반 중고품보다 더 높은 가치를 인정받습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Action -->
+                <div class="pt-8">
+                    <button class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-all flex items-center gap-3">
+                        <span>샘플 인증서 확인하기</span>
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 text-center text-sm text-gray-500">
+        <p>&copy; 2024 Re:Born AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

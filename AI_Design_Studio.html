@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Design Studio - Re:Born AI</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { DEFAULT: '#E9C46A', light: '#F4D385', dark: '#D1A84F' },
+                        eco: { DEFAULT: '#7F9F80', light: '#A3C1A4', dark: '#5F7F60' },
+                        accent: { DEFAULT: '#F4A261' },
+                        cream: { 100: '#FFFCF7', 200: '#F9F5EB' },
+                        gray: { 900: '#1F2937', 800: '#4A4A4A', 700: '#6B6B6B', 600: '#8C8C8C' }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                        eng: ['Montserrat', 'sans-serif'],
+                        hand: ['"Gowun Dodum"', 'serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 1.5s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9F5EB; }
+        ::-webkit-scrollbar-thumb { background: #E9C46A; border-radius: 4px; border: 2px solid #F9F5EB; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden bg-cream-100">
+
+    <!-- Navigation Bar (Updated Links) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-cream-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="font-eng font-bold text-2xl text-gray-800 tracking-tighter">
+                        Re:Born <span class="text-accent">AI</span>
+                    </span>
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="AI_Design_Studio.html" class="text-brand font-bold transition-colors duration-200">AI 디자인</a>
+                    <a href="Style_Library.html" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200">스타일 라이브러리</a>
+                    <a href="Master_Makers.html" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200">마스터 작가</a>
+                    <a href="Digital_Heritage.html" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200">디지털 헤리티지</a>
+                    <button class="bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded-full font-bold shadow-sm hover:shadow-md transition-all">
+                        앱 다운로드
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="pt-32 pb-12 text-center px-4">
+        <h1 class="font-eng text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            AI Design Studio
+        </h1>
+        <p class="text-gray-500 text-sm md:text-base">
+            상상을 현실로 만드는 가장 쉬운 방법
+        </p>
+    </header>
+
+    <!-- Main Tool Interface -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col lg:flex-row min-h-[700px]">
+            
+            <!-- Left: Controls -->
+            <div class="lg:w-1/3 bg-gray-50 p-6 md:p-8 border-r border-gray-100 flex flex-col h-full relative z-20">
+                <div class="mb-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-gray-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                        <h3 class="font-bold text-gray-800 text-sm">내 아이템 (Target)</h3>
+                    </div>
+                    <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-brand hover:bg-brand/5 transition-all cursor-pointer group bg-white">
+                        <svg class="w-8 h-8 text-gray-400 mx-auto mb-1 group-hover:text-brand transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <p class="text-xs text-gray-500">리폼할 옷 사진 업로드</p>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-gray-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                        <h3 class="font-bold text-gray-800 text-sm">참고 자료 <span class="font-normal text-gray-400 text-xs">(선택)</span></h3>
+                    </div>
+                    <div class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center hover:border-brand hover:bg-brand/5 transition-all cursor-pointer group bg-white flex flex-col items-center justify-center h-24">
+                        <svg class="w-6 h-6 text-gray-400 mb-1 group-hover:text-brand transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p class="text-xs text-gray-400">원하는 스타일/패턴 이미지</p>
+                    </div>
+                </div>
+
+                <div class="flex-grow flex flex-col">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-gray-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                        <h3 class="font-bold text-gray-800 text-sm">요청 사항</h3>
+                    </div>
+                    <div class="relative flex-grow">
+                        <textarea class="w-full h-full min-h-[120px] p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand focus:border-transparent resize-none text-sm text-gray-700 bg-white" placeholder="예) 소매 끝에 참고 이미지의 자수 패턴을 넣어주고, 전체 핏을 좀 더 루즈하게 바꿔줘."></textarea>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <button id="generate-btn" class="w-full bg-gray-900 hover:bg-gray-800 text-white py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 group transition-all transform hover:scale-[1.02]">
+                        <svg class="w-5 h-5 text-brand animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        디자인 생성하기
+                    </button>
+                    <p class="text-center text-xs text-gray-400 mt-3 flex items-center justify-center gap-1">
+                        1크레딧 차감 (잔여: 3회)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right: Preview Area -->
+            <div class="lg:w-2/3 bg-gray-100/50 relative flex flex-col h-full min-h-[700px]">
+                <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')] z-0"></div>
+                <div class="relative z-10 w-full h-full p-8 flex flex-col justify-center items-center">
+                    <div id="state-placeholder" class="text-center max-w-sm flex flex-col justify-center items-center h-full">
+                        <div class="w-24 h-24 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-sm border border-gray-100">
+                            <svg class="w-10 h-10 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-400 mb-2">Design Canvas</h3>
+                        <p class="text-gray-400 text-sm">
+                            왼쪽에서 아이템과 참고 자료를 입력하면,<br>
+                            AI가 분석하여 4가지 스타일을 제안합니다.
+                        </p>
+                    </div>
+
+                    <div id="state-loading" class="hidden flex-col items-center justify-center h-full">
+                        <div class="w-16 h-16 border-4 border-brand/30 border-t-brand rounded-full animate-spin-slow mb-4"></div>
+                        <h3 class="text-lg font-bold text-gray-800 animate-pulse">AI가 디자인을 구상 중입니다...</h3>
+                        <p class="text-gray-500 text-sm mt-2">약 10초 정도 소요됩니다.</p>
+                    </div>
+
+                    <div id="state-grid" class="hidden w-full h-full flex-col justify-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">4가지 스타일이 생성되었습니다.</h3>
+                        <div class="grid grid-cols-2 gap-4 h-[500px] w-full max-w-2xl mx-auto">
+                            <div onclick="selectDesign(0)" class="relative group cursor-pointer overflow-hidden rounded-2xl border-2 border-transparent hover:border-brand shadow-sm hover:shadow-xl transition-all bg-white">
+                                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform group-hover:scale-105" alt="Design 1">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-bold text-sm transform translate-y-2 group-hover:translate-y-0 transition-transform">선택하기</span>
+                                </div>
+                            </div>
+                            <div onclick="selectDesign(1)" class="relative group cursor-pointer overflow-hidden rounded-2xl border-2 border-transparent hover:border-brand shadow-sm hover:shadow-xl transition-all bg-white">
+                                <img src="https://images.unsplash.com/photo-1550614000-4b9519e02d48?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform group-hover:scale-105" alt="Design 2">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-bold text-sm transform translate-y-2 group-hover:translate-y-0 transition-transform">선택하기</span>
+                                </div>
+                            </div>
+                            <div onclick="selectDesign(2)" class="relative group cursor-pointer overflow-hidden rounded-2xl border-2 border-transparent hover:border-brand shadow-sm hover:shadow-xl transition-all bg-white">
+                                <img src="https://images.unsplash.com/photo-1559563458-527698bf5295?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform group-hover:scale-105" alt="Design 3">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-bold text-sm transform translate-y-2 group-hover:translate-y-0 transition-transform">선택하기</span>
+                                </div>
+                            </div>
+                            <div onclick="selectDesign(3)" class="relative group cursor-pointer overflow-hidden rounded-2xl border-2 border-transparent hover:border-brand shadow-sm hover:shadow-xl transition-all bg-white">
+                                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform group-hover:scale-105" alt="Design 4">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-bold text-sm transform translate-y-2 group-hover:translate-y-0 transition-transform">선택하기</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-gray-500 mt-6 text-sm">마음에 드는 디자인을 선택하여 크게 보세요.</p>
+                    </div>
+
+                    <div id="state-detail" class="hidden w-full h-full flex-col">
+                        <div class="flex-grow flex gap-4 w-full h-[500px]">
+                            <div class="flex-grow bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden relative">
+                                <img id="main-preview-img" src="" class="w-full h-full object-cover">
+                                <div class="absolute top-4 left-4 bg-brand text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    Selected
+                                </div>
+                            </div>
+                            <div class="w-32 flex flex-col gap-3 flex-shrink-0">
+                                <div id="sidebar-container" class="flex flex-col gap-3 h-full overflow-y-auto pr-1"></div>
+                            </div>
+                        </div>
+
+                        <div class="relative z-20 mt-6 w-full max-w-lg mx-auto">
+                            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-2 flex justify-between items-center gap-2">
+                                <button class="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-gray-50 text-gray-600 hover:text-brand transition-colors group">
+                                    <svg class="w-6 h-6 mb-0.5 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 5 8.268 7.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                    <span class="text-xs font-bold">보기</span>
+                                </button>
+                                <div class="w-px h-8 bg-gray-200"></div>
+                                <button class="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-gray-50 text-gray-600 hover:text-brand transition-colors group">
+                                    <svg class="w-6 h-6 mb-0.5 group-hover:rotate-180 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                    <span class="text-xs font-bold">바꾸기</span>
+                                </button>
+                                <div class="w-px h-8 bg-gray-200"></div>
+                                <button class="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-gray-50 text-gray-600 hover:text-brand transition-colors group">
+                                    <svg class="w-6 h-6 mb-0.5 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    <span class="text-xs font-bold">다운로드</span>
+                                </button>
+                                <div class="w-px h-8 bg-gray-200"></div>
+                                <button onclick="resetAll()" class="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-red-50 text-gray-600 hover:text-red-500 transition-colors group">
+                                    <svg class="w-6 h-6 mb-0.5 group-hover:rotate-90 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span class="text-xs font-bold">새사진</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div class="bg-white p-6 rounded-2xl shadow-soft flex items-start gap-4">
+                <div class="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center flex-shrink-0 text-brand-dark">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1">4가지 스타일 제안</h4>
+                    <p class="text-sm text-gray-600">한 번의 요청으로 4가지 다른 느낌의 고화질 디자인 시안을 동시에 받아보세요.</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-soft flex items-start gap-4">
+                <div class="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center flex-shrink-0 text-brand-dark">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1">테크팩(작업지시서) 다운로드</h4>
+                    <p class="text-sm text-gray-600">제작에 필요한 도식화와 상세 정보가 담긴 테크팩을 유료로 소장할 수 있습니다.</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-soft flex items-start gap-4">
+                <div class="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center flex-shrink-0 text-brand-dark">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1">마스터 매칭 예약</h4>
+                    <p class="text-sm text-gray-600">직접 제작이 어렵다면, 마음에 드는 시안으로 장인 매칭을 예약하세요.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 text-center text-sm text-gray-500">
+        <p>&copy; 2024 Re:Born AI. All rights reserved.</p>
+    </footer>
+
+    <!-- INTERACTION LOGIC -->
+    <script>
+        const designs = [
+            "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1550614000-4b9519e02d48?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1559563458-527698bf5295?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&auto=format&fit=crop"
+        ];
+        let selectedIndex = 0;
+        const statePlaceholder = document.getElementById('state-placeholder');
+        const stateLoading = document.getElementById('state-loading');
+        const stateGrid = document.getElementById('state-grid');
+        const stateDetail = document.getElementById('state-detail');
+        const generateBtn = document.getElementById('generate-btn');
+
+        generateBtn.addEventListener('click', () => {
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<span class="animate-spin">⌛</span> 생성 중...';
+            statePlaceholder.classList.add('hidden');
+            stateGrid.classList.add('hidden');
+            stateDetail.classList.add('hidden');
+            stateLoading.classList.remove('hidden');
+            stateLoading.classList.add('flex');
+            setTimeout(() => {
+                stateLoading.classList.add('hidden');
+                stateLoading.classList.remove('flex');
+                stateGrid.classList.remove('hidden');
+                stateGrid.classList.add('flex');
+                generateBtn.innerHTML = '✨ 다시 생성하기';
+                generateBtn.disabled = false;
+            }, 2500);
+        });
+
+        window.selectDesign = function(index) {
+            selectedIndex = index;
+            updateDetailView();
+            stateGrid.classList.add('hidden');
+            stateGrid.classList.remove('flex');
+            stateDetail.classList.remove('hidden');
+            stateDetail.classList.add('flex');
+        };
+
+        function updateDetailView() {
+            const mainImg = document.getElementById('main-preview-img');
+            mainImg.src = designs[selectedIndex];
+            const sidebar = document.getElementById('sidebar-container');
+            sidebar.innerHTML = '';
+            designs.forEach((src, idx) => {
+                if (idx === selectedIndex) return;
+                const thumbDiv = document.createElement('div');
+                thumbDiv.className = 'w-full h-24 rounded-xl overflow-hidden cursor-pointer border-2 border-transparent hover:border-brand shadow-sm hover:shadow-md transition-all relative flex-shrink-0';
+                thumbDiv.onclick = () => selectDesign(idx);
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'w-full h-full object-cover';
+                thumbDiv.appendChild(img);
+                sidebar.appendChild(thumbDiv);
+            });
+        }
+
+        window.resetAll = function() {
+            stateDetail.classList.add('hidden');
+            stateDetail.classList.remove('flex');
+            stateGrid.classList.add('hidden');
+            stateGrid.classList.remove('flex');
+            statePlaceholder.classList.remove('hidden');
+            generateBtn.innerHTML = `
+                <svg class="w-5 h-5 text-brand animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                디자인 생성하기
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Born AI - 상상을 작품으로</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Pretendard, Montserrat, Gowun Dodum) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#E9C46A', // Warm Sand (따뜻한 모래색)
+                            light: '#F4D385',
+                            dark: '#D1A84F',
+                        },
+                        eco: {
+                            DEFAULT: '#7F9F80', // Sage Green (차분한 세이지 그린)
+                            light: '#A3C1A4',
+                            dark: '#5F7F60',
+                        },
+                        accent: {
+                            DEFAULT: '#F4A261', // Soft Clay
+                        },
+                        cream: {
+                            100: '#FFFCF7', // Creamy White background
+                            200: '#F9F5EB',
+                        },
+                        gray: {
+                            900: '#1F2937', 
+                            800: '#4A4A4A', 
+                            700: '#6B6B6B', 
+                            600: '#8C8C8C',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                        eng: ['Montserrat', 'sans-serif'],
+                        hand: ['"Gowun Dodum"', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 기본 스크롤바 커스텀 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F5EB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E9C46A;
+            border-radius: 4px;
+            border: 2px solid #F9F5EB;
+        }
+        
+        #css-fail-warning {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #FFF8E1;
+            color: #7F5F00;
+            padding: 16px;
+            text-align: center;
+            z-index: 9999;
+            border-bottom: 1px solid #FFE082;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        .text-gradient-warm {
+            background: linear-gradient(to right, #E9C46A, #F4A261);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden bg-cream-100">
+
+    <!-- CSS 로딩 실패 감지 안내 배너 -->
+    <div id="css-fail-warning">
+        ⚠️ <strong>디자인이 보이지 않나요?</strong><br>
+        현재 '미리보기' 상태입니다. 하단/상단 메뉴의 <strong>[Safari/브라우저로 열기]</strong>를 눌러주세요.
+    </div>
+
+    <!-- Navigation Bar (Links Updated: 모든 페이지 연결 완료) -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-lg border-b border-cream-200/50 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo: Reload Home -->
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer group">
+                    <span class="font-eng font-bold text-2xl text-gray-800 tracking-tighter group-hover:text-brand transition-colors">
+                        Re:Born <span class="text-accent">AI</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Menu: [스타일 라이브러리] 추가됨 -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="AI_Design_Studio.html" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200">AI 디자인</a>
+                    <a href="Style_Library.html" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200">스타일 라이브러리</a> <!-- 추가됨 -->
+                    <a href="Master_Makers.html" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200">마스터 작가</a>
+                    <a href="Digital_Heritage.html" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200">디지털 헤리티지</a>
+                    <a href="#" class="text-gray-700 hover:text-brand font-medium transition-colors duration-200 cursor-not-allowed" title="준비 중">멤버십</a>
+                    
+                    <!-- CTA Button -->
+                    <button class="bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded-full font-bold transition-all duration-300 shadow-soft hover:shadow-md transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <span>앱 다운로드</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-brand focus:outline-none bg-cream-200/50 p-2 rounded-lg">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl absolute w-full border-t border-cream-200 shadow-lg rounded-b-2xl">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="AI_Design_Studio.html" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cream-200 hover:text-brand transition-colors">AI 디자인</a>
+                <a href="Style_Library.html" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cream-200 hover:text-brand transition-colors">스타일 라이브러리</a> <!-- 추가됨 -->
+                <a href="Master_Makers.html" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cream-200 hover:text-brand transition-colors">마스터 작가</a>
+                <a href="Digital_Heritage.html" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cream-200 hover:text-brand transition-colors">디지털 헤리티지</a>
+                <a href="#" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cream-200 hover:text-brand transition-colors">멤버십</a>
+                <div class="pt-4 px-2">
+                    <button class="w-full bg-brand hover:bg-brand-dark text-white px-5 py-3.5 rounded-xl font-bold shadow-soft transition-all">
+                        앱 다운로드 시작하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-cream-100">
+        
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1603441581067-7c0368c92042?q=80&w=1920&auto=format&fit=crop" 
+                 alt="따뜻한 자연광이 드는 패션 디자인 공방과 재료들" 
+                 class="w-full h-full object-cover opacity-90"
+                 onerror="this.style.display='none'; document.querySelector('.absolute.inset-0.bg-gradient-to-r').style.opacity='1'; document.querySelector('.absolute.inset-0.z-0').style.backgroundColor='#F9F5EB';"
+            >
+            <!-- Warm & Bright Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-cream-100/80 via-cream-100/60 to-transparent/20"></div>
+        </div>
+
+        <!-- Content Container -->
+        <div class="relative z-10 container mx-auto px-4 text-center sm:text-left sm:px-6 lg:px-8 mt-20">
+            <div class="max-w-5xl mx-auto sm:mx-0">
+                
+                <!-- Tagline -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-cream-200/50 mb-8 animate-fade-in-up shadow-sm" style="animation-delay: 0.1s;">
+                    <span class="w-2.5 h-2.5 rounded-full bg-eco animate-pulse-slow"></span>
+                    <span class="text-eco-dark text-sm font-bold tracking-wider uppercase">AI 커스텀 & 리폼 스튜디오</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="font-hand font-bold text-gray-800 leading-tight mb-8 animate-fade-in-up tracking-tight" style="animation-delay: 0.3s;">
+                    <span class="block text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-3 font-bold">
+                        당신의 이야기,
+                    </span>
+                    <span class="block text-5xl sm:text-6xl md:text-8xl text-gradient-warm mb-4 pb-2 leading-none">
+                        작품이 됩니다.
+                    </span>
+                </h1>
+
+                <!-- Sub-text -->
+                <p class="text-lg sm:text-xl text-gray-700 mb-10 max-w-xl leading-relaxed animate-fade-in-up font-medium" style="animation-delay: 0.5s;">
+                    추억이 담긴 옷에 나만의 가치를 더하세요.<br class="hidden sm:block">
+                    RE:BORN AI가 당신의 상상을 가장 가치 있는 현실로 만듭니다.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up justify-center sm:justify-start" style="animation-delay: 0.7s;">
+                    <button class="bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-soft hover:shadow-md flex items-center justify-center gap-3 group w-full sm:w-auto">
+                        <span>나만의 디자인 시작하기</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:rotate-12 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    
+                    <button class="bg-white hover:bg-cream-200 border-2 border-cream-200 text-gray-700 hover:text-brand px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto group">
+                        <span>따뜻한 후기 보러 가기</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-brand transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up opacity-70 hover:opacity-100 transition-opacity cursor-pointer" style="animation-delay: 1.2s;">
+            <span class="text-gray-600 text-xs tracking-widest uppercase font-medium">스크롤하여 더 보기</span>
+            <div class="w-0.5 h-12 border-l-2 border-dashed border-gray-400/50 relative overflow-hidden">
+                <div class="absolute top-0 left-[-2px] w-1 h-4 bg-brand rounded-full animate-bounce-slow origin-top"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Problem & Solution -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Image Collage -->
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-eco/20 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80&w=1600&auto=format&fit=crop" 
+                             alt="옷 정리를 고민하는 모습" 
+                             class="w-full h-[500px] object-cover"
+                        >
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
+                            <p class="text-white/90 font-medium text-lg">"유행 지나 입긴 싫고, 버리자니 너무 아까운데..."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Text Content -->
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cream-200 text-brand-dark text-sm font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                        Re:Born Solution
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                        옷장 속 잠든 옷,<br>
+                        <span class="text-eco-dark">가치 있는 자산</span>으로 다시 태어납니다.
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        머릿속엔 완벽한 디자인이 있는데, 막막하셨나요?<br>
+                        RE:BORN AI가 당신의 말을 디자인으로 번역하고,<br>
+                        분야별 마스터와 연결합니다.
+                    </p>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-700"><strong>AI 디자인 시각화</strong> — 한마디로 완성되는 시안</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-700"><strong>검증된 장인 매칭</strong> — 분야별 마스터</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-700"><strong>디지털 헤리티지</strong> — 리셀 가치를 보장하는 인증서</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Key Features (3-Step Process) -->
+    <section class="py-24 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">상상이 현실이 되는 3단계</h2>
+                <p class="text-gray-600 text-lg">복잡한 과정은 AI와 전문가가 해결합니다. 당신은 즐기기만 하세요.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+                    <div class="w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <svg class="w-8 h-8 text-brand group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">1. AI 상상하기</h3>
+                    <p class="text-gray-600 leading-relaxed">사진을 찍고 "빈티지하게 바꿔줘"라고 말해보세요. 10초 만에 4가지 디자인 시안을 제안합니다.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+                    <div class="w-16 h-16 bg-eco/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-eco group-hover:text-white transition-colors duration-300">
+                        <svg class="w-8 h-8 text-eco group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0M8 10.5h4m-4 3h4m9-1.5a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">2. 마스터 매칭</h3>
+                    <p class="text-gray-600 leading-relaxed">직접만드실 수 없다면, 내 디자인을 가장 잘 구현할 리폼 장인을 AI가 추천합니다.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">3. 작품 인증</h3>
+                    <p class="text-gray-600 leading-relaxed">완성된 작품에는 고유 QR '디지털 족보'가 발급되어 진품 인증과 리셀 가치를 보장합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Social Proof -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-eco/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Headline & Stats -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
+                        이미 <span class="text-brand">12,400벌</span>의 옷이<br>
+                        예술 작품으로 다시 태어났습니다.
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        옷장 속에 잠들어 있던 평범한 옷들이<br>
+                        누군가의 가장 아끼는 보물 1호가 되고 있습니다.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-cream-100 p-6 rounded-2xl border border-cream-200">
+                            <p class="text-4xl font-bold text-gray-900 mb-1">4.9<span class="text-xl text-gray-500">/5.0</span></p>
+                            <p class="text-sm text-gray-600 font-medium">고객 만족도</p>
+                            <div class="flex text-yellow-400 mt-2">★★★★★</div>
+                        </div>
+                        <div class="bg-cream-100 p-6 rounded-2xl border border-cream-200">
+                            <p class="text-4xl font-bold text-gray-900 mb-1">15<span class="text-xl text-gray-500">년+</span></p>
+                            <p class="text-sm text-gray-600 font-medium">마스터 평균 경력</p>
+                            <div class="mt-2 w-full bg-gray-200 rounded-full h-1.5">
+                                <div class="bg-eco h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Review Card -->
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 bg-brand text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl font-serif shadow-lg z-20">"</div>
+                    <div class="bg-white p-8 rounded-3xl shadow-soft border border-gray-100 relative z-10">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop" 
+                                 alt="김민지님 프로필" 
+                                 class="w-14 h-14 rounded-full object-cover border-2 border-brand/20"
+                            >
+                            <div>
+                                <p class="font-bold text-gray-900">김민지 님</p>
+                                <p class="text-sm text-gray-500">30대 직장인 · 빈티지 리폼 의뢰</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-lg italic mb-6">
+                            "엄마가 물려주신 낡은 가방, 버리기 아까웠는데 어떻게 고쳐야 할지 막막했어요. 
+                            <strong>AI 시안 덕분에 힙한 숄더백이 됐어요.</strong> 
+                            QR로 히스토리까지 남으니 명품보다 더 소중하게 느껴져요."
+                        </p>
+                        <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+                            <span class="text-sm text-gray-400">2024.03.15 작성</span>
+                            <span class="text-brand font-medium text-sm flex items-center gap-1 cursor-pointer hover:underline">
+                                후기 더보기 
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4 w-full h-full bg-cream-200 rounded-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: CTA Banner -->
+    <section class="py-20 bg-gray-900 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 font-hand leading-tight">
+                당신의 상상, 지금 바로<br>현실로 꺼내보세요.
+            </h2>
+            <p class="text-gray-400 text-lg mb-10">
+                첫 가입 시, AI 디자인 생성 무제한 & 수수료 0원 혜택을 드립니다.
+            </p>
+            <button class="bg-brand hover:bg-brand-light text-white px-10 py-4 rounded-full font-bold text-xl transition-all duration-300 shadow-lg shadow-brand/50 hover:scale-105">
+                무료로 시작하기
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <span class="font-eng font-bold text-2xl text-gray-800 tracking-tighter block mb-4">
+                        Re:Born <span class="text-accent">AI</span>
+                    </span>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        세상에 단 하나뿐인 나만의 패션,<br>
+                        AI와 장인이 함께 만듭니다.
+                    </p>
+                </div>
+                
+                <!-- Links 1 -->
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Service</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="AI_Design_Studio.html" class="hover:text-brand">AI 디자인 스튜디오</a></li>
+                        <li><a href="Master_Makers.html" class="hover:text-brand">마스터 찾기</a></li>
+                        <li><a href="Style_Library.html" class="hover:text-brand">스타일 라이브러리</a></li> <!-- 업데이트됨 -->
+                        <li><a href="#" class="hover:text-brand">멤버십 안내</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 2 -->
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-brand">공지사항</a></li>
+                        <li><a href="#" class="hover:text-brand">자주 묻는 질문</a></li>
+                        <li><a href="#" class="hover:text-brand">1:1 문의</a></li>
+                        <li><a href="#" class="hover:text-brand">제휴/입점 문의</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>Customer Center: 1588-0000</li>
+                        <li>Email: help@reborn.ai</li>
+                        <li class="pt-2 flex space-x-4">
+                            <!-- SNS Icons -->
+                            <a href="#" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white transition-colors">Insta</a>
+                            <a href="#" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white transition-colors">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <p>&copy; 2024 Re:Born AI. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gray-600">이용약관</a>
+                    <a href="#" class="hover:text-gray-600 font-bold">개인정보처리방침</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Interactions & Fail Check -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        if (btn) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if (!menu.classList.contains('hidden')) {
+                    navbar.classList.add('bg-white/95', 'shadow-md');
+                    navbar.classList.remove('bg-white/70', 'shadow-sm');
+                } else if (window.scrollY <= 50) {
+                    navbar.classList.remove('bg-white/95', 'shadow-md');
+                    navbar.classList.add('bg-white/70', 'shadow-sm');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!navbar || (menu && !menu.classList.contains('hidden'))) return;
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'shadow-md');
+                navbar.classList.remove('bg-white/70', 'shadow-sm', 'border-b');
+            } else {
+                navbar.classList.remove('bg-white/95', 'shadow-md');
+                navbar.classList.add('bg-white/70', 'shadow-sm', 'border-b');
+            }
+        });
+
+        setTimeout(function() {
+            if (typeof tailwind === 'undefined') {
+                document.getElementById('css-fail-warning').style.display = 'block';
+            }
+        }, 1500);
+    </script>
+</body>
+</html>

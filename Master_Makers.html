@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Makers - Re:Born AI</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { DEFAULT: '#E9C46A', light: '#F4D385', dark: '#D1A84F' },
+                        eco: { DEFAULT: '#7F9F80', light: '#A3C1A4', dark: '#5F7F60' },
+                        cream: { 100: '#FFFCF7', 200: '#F9F5EB' },
+                        gray: { 900: '#1F2937', 800: '#4A4A4A', 700: '#6B6B6B', 600: '#8C8C8C' }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                        eng: ['Montserrat', 'sans-serif'],
+                        hand: ['"Gowun Dodum"', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9F5EB; }
+        ::-webkit-scrollbar-thumb { background: #E9C46A; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden bg-cream-100">
+
+    <!-- Navigation Bar (Updated Links) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-cream-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="font-eng font-bold text-2xl text-gray-800 tracking-tighter">
+                        Re:Born <span class="text-brand">AI</span>
+                    </span>
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="AI_Design_Studio.html" class="text-gray-700 hover:text-brand font-medium transition-colors">AI 디자인</a>
+                    <a href="Style_Library.html" class="text-gray-700 hover:text-brand font-medium transition-colors">스타일 라이브러리</a>
+                    <a href="Master_Makers.html" class="text-brand font-bold transition-colors">마스터 작가</a>
+                    <a href="Digital_Heritage.html" class="text-gray-700 hover:text-brand font-medium transition-colors">디지털 헤리티지</a>
+                    <button class="bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded-full font-bold shadow-sm hover:shadow-md transition-all">
+                        앱 다운로드
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-32 pb-12 text-center px-4 bg-gradient-to-b from-white to-cream-100">
+        <h1 class="font-hand text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Master Makers
+        </h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            AI의 상상을 현실의 감동으로 완성하는 손길.<br>
+            국내 상위 1% 커스텀 장인들이 당신의 의뢰를 기다립니다.
+        </p>
+    </header>
+
+    <!-- Category Filter -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="flex flex-wrap justify-center gap-3">
+            <button class="px-6 py-2 rounded-full bg-gray-900 text-white font-bold text-sm shadow-md transform hover:scale-105 transition-all">전체 보기</button>
+            <button class="px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-brand hover:text-brand font-medium text-sm transition-all">가죽/명품복원</button>
+            <button class="px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-brand hover:text-brand font-medium text-sm transition-all">자수/재봉</button>
+            <button class="px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-brand hover:text-brand font-medium text-sm transition-all">페인팅/아트</button>
+            <button class="px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-brand hover:text-brand font-medium text-sm transition-all">업사이클링</button>
+        </div>
+    </section>
+
+    <!-- Master Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1f164e32be?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Portfolio">
+                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-gray-800 flex items-center gap-1">
+                        <svg class="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        4.9 (128건)
+                    </div>
+                </div>
+                
+                <div class="p-6 relative">
+                    <div class="absolute -top-10 left-6">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 rounded-full border-4 border-white object-cover shadow-md" alt="Master Profile">
+                    </div>
+                    
+                    <div class="mt-8">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">김서연 마스터</h3>
+                                <p class="text-sm text-brand font-medium">데님 업사이클링 전문가</p>
+                            </div>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">경력 12년</span>
+                        </div>
+                        
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">
+                            오래된 청바지에 새로운 생명을 불어넣습니다. 빈티지한 워싱과 자수 디테일 작업에 특화되어 있습니다.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">#데님리폼</span>
+                            <span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">#빈티지자수</span>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button class="flex-1 border border-gray-300 hover:border-brand hover:text-brand text-gray-700 py-3 rounded-xl font-bold text-sm transition-colors">
+                                포트폴리오
+                            </button>
+                            <button class="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-xl font-bold text-sm transition-colors">
+                                견적 요청
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1512413316925-fd4b93f31521?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Portfolio">
+                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-gray-800 flex items-center gap-1">
+                        <svg class="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        5.0 (84건)
+                    </div>
+                </div>
+                <div class="p-6 relative">
+                    <div class="absolute -top-10 left-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 rounded-full border-4 border-white object-cover shadow-md" alt="Master Profile">
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">박준호 마스터</h3>
+                                <p class="text-sm text-brand font-medium">가죽 복원 & 염색</p>
+                            </div>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">경력 18년</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">
+                            명품 가방 및 가죽 자켓 복원 전문입니다. 원피의 질감을 그대로 살리면서 새로운 컬러로 커스텀합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">#가죽염색</span>
+                            <span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">#명품수선</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 border border-gray-300 hover:border-brand hover:text-brand text-gray-700 py-3 rounded-xl font-bold text-sm transition-colors">
+                                포트폴리오
+                            </button>
+                            <button class="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-xl font-bold text-sm transition-colors">
+                                견적 요청
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1605218427368-35b82a990a29?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Portfolio">
+                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-gray-800 flex items-center gap-1">
+                        <svg class="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        4.8 (56건)
+                    </div>
+                </div>
+                <div class="p-6 relative">
+                    <div class="absolute -top-10 left-6">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 rounded-full border-4 border-white object-cover shadow-md" alt="Master Profile">
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">이수진 마스터</h3>
+                                <p class="text-sm text-brand font-medium">핸드페인팅 아티스트</p>
+                            </div>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">경력 8년</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">
+                            패브릭 물감과 특수 안료를 사용해 세상에 하나뿐인 그림을 그려드립니다. 팝아트부터 수채화풍까지 가능합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">#커스텀페인팅</span>
+                            <span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">#일러스트</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 border border-gray-300 hover:border-brand hover:text-brand text-gray-700 py-3 rounded-xl font-bold text-sm transition-colors">
+                                포트폴리오
+                            </button>
+                            <button class="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-xl font-bold text-sm transition-colors">
+                                견적 요청
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="text-center mt-12">
+            <button class="px-8 py-3 rounded-full border border-gray-300 text-gray-600 hover:border-brand hover:text-brand font-bold transition-all flex items-center gap-2 mx-auto">
+                <span>마스터 더 보기</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 text-center text-sm text-gray-500">
+        <p>&copy; 2024 Re:Born AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
