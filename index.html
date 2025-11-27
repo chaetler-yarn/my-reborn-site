@@ -116,7 +116,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (여백 확보: pb-32 추가) -->
+    <!-- Hero Section (여백 확보: pb-32 유지) -->
     <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream-100 pt-20 pb-32">
         
         <!-- Background Image -->
@@ -155,7 +155,7 @@
                     RE:BORN AI가 당신의 상상을 현실로 만듭니다.
                 </p>
 
-                <!-- Quick Actions Icons (Mobile Optimized) -->
+                <!-- [복구됨] Quick Actions Icons (Mobile Optimized) -->
                 <div class="quick-menu-grid mb-8 sm:hidden animate-fade-in-up" style="animation-delay: 0.5s;">
                     <a href="AI_Design_Studio.html" class="flex flex-col items-center gap-2 group">
                         <div class="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center border border-gray-100 group-hover:border-brand group-hover:scale-105 transition-all">
@@ -183,7 +183,7 @@
                     </a>
                 </div>
 
-                <!-- CTA Buttons -->
+                <!-- CTA Buttons (스타일 라이브러리 버튼 삭제됨) -->
                 <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up justify-center sm:justify-start" style="animation-delay: 0.6s;">
                     <a href="AI_Design_Studio.html" class="bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-soft hover:shadow-md flex items-center justify-center gap-3 group w-full sm:w-auto">
                         <span>나만의 디자인 시작하기</span>
@@ -191,20 +191,13 @@
                             <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
                         </svg>
                     </a>
-                    
-                    <a href="Style_Library.html" class="bg-white hover:bg-cream-200 border-2 border-cream-200 text-gray-700 hover:text-brand px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto group">
-                        <span>스타일 라이브러리 구경하기</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 group-hover:text-brand transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll Down Indicator (수정됨: 위치 고정, 잘 보임, 안 겹침) -->
-        <div class="absolute bottom-6 left-0 w-full flex flex-col items-center gap-2 animate-fade-in-up cursor-pointer z-20" style="animation-delay: 1.0s;">
-            <!-- 텍스트를 캡슐 형태로 감싸서 어떤 배경에서도 잘 보이게 함 -->
+        <!-- Scroll Down Indicator (가운데 정렬 및 겹침 방지) -->
+        <div class="absolute bottom-8 left-0 w-full flex flex-col items-center gap-2 animate-fade-in-up cursor-pointer z-20" style="animation-delay: 1.0s;">
+            <!-- 텍스트를 캡슐 형태로 감싸서 가독성 높임 -->
             <span class="text-gray-800 text-xs font-bold tracking-widest uppercase bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/50 shadow-lg">
                 더 많은 이야기가 아래에 있어요 👇
             </span>
