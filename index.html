@@ -116,8 +116,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream-100 pt-20">
+    <!-- Hero Section (여백 확보: pb-32 추가) -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream-100 pt-20 pb-32">
         
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
@@ -126,7 +126,7 @@
                  class="w-full h-full object-cover opacity-90"
             >
             <div class="absolute inset-0 bg-gradient-to-r from-cream-100/90 via-cream-100/70 to-transparent/20"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/80"></div> <!-- 하단 자연스러운 연결 -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream-100/80"></div>
         </div>
 
         <!-- Content Container -->
@@ -165,7 +165,7 @@
                     </a>
                     <a href="Style_Library.html" class="flex flex-col items-center gap-2 group">
                         <div class="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center border border-gray-100 group-hover:border-brand group-hover:scale-105 transition-all">
-                            <svg class="w-7 h-7 text-eco" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                            <svg class="w-7 h-7 text-eco" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
                         </div>
                         <span class="text-xs font-bold text-gray-700">라이브러리</span>
                     </a>
@@ -202,13 +202,17 @@
             </div>
         </div>
 
-        <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up cursor-pointer w-full" style="animation-delay: 1.0s;">
-            <span class="text-gray-600 text-xs font-bold tracking-widest uppercase bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full border border-white/50">
+        <!-- Scroll Down Indicator (수정됨: 위치 고정, 잘 보임, 안 겹침) -->
+        <div class="absolute bottom-6 left-0 w-full flex flex-col items-center gap-2 animate-fade-in-up cursor-pointer z-20" style="animation-delay: 1.0s;">
+            <!-- 텍스트를 캡슐 형태로 감싸서 어떤 배경에서도 잘 보이게 함 -->
+            <span class="text-gray-800 text-xs font-bold tracking-widest uppercase bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/50 shadow-lg">
                 더 많은 이야기가 아래에 있어요 👇
             </span>
-            <div class="w-0.5 h-10 border-l-2 border-dashed border-gray-400/50 relative overflow-hidden mt-1">
-                <div class="absolute top-0 left-[-2px] w-1 h-4 bg-brand rounded-full animate-bounce-slow origin-top"></div>
+            <!-- 화살표 애니메이션 -->
+            <div class="bg-white/80 p-1 rounded-full shadow-sm">
+                <svg class="w-5 h-5 text-brand animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
             </div>
         </div>
 
